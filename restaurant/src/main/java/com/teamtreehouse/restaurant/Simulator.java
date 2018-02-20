@@ -47,19 +47,6 @@ public class Simulator {
         table5.addObserver(bob);
         table2.addObserver(darla);
 
-        int numberOfIterations = 30;
-        for (int counter = 0; counter < numberOfIterations; counter++) {
-            Optional<Server> server = servers.stream()
-                    .filter(Server::isAvailable)
-                    .findAny();
-            Optional<Assistant> assistant = assistants.stream()
-                    .filter(Assistant::isAvailable)
-                    .findAny();
-            for (Table table : tables) {
-
-            }
-            passTime(1);
-        }
         System.out.println("Closing up shop");
         servers.forEach(Server::clockOut);
         assistants.forEach(Assistant::clockOut);
