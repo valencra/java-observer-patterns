@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../../gold-watcher">
       <excludeFolder url="file://$MODULE_DIR$/../../../gold-watcher/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../gold-watcher/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../gold-watcher/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

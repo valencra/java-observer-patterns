@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../../universal-remote">
       <excludeFolder url="file://$MODULE_DIR$/../../../universal-remote/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../universal-remote/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../universal-remote/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
