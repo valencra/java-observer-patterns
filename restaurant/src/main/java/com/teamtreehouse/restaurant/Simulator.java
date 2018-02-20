@@ -24,7 +24,6 @@ public class Simulator {
         );
         Dashboard dashboard = new Dashboard();
         tables.forEach(dashboard::addTable);
-        tables.forEach(table -> table.addObserver(dashboard));
 
         Server alice = new Server("Alice");
         Server bob = new Server("Bob");
@@ -36,6 +35,13 @@ public class Simulator {
 
         List<Assistant> assistants = Arrays.asList(charlie, darla);
 
+        tables.forEach(table -> table.addObserver(dashboard));
+        table1.addObserver(alice);
+        table2.addObserver(alice);
+        table3.addObserver(alice);
+        table4.addObserver(bob);
+        table5.addObserver(bob);
+
         int numberOfIterations = 30;
         for (int counter = 0; counter < numberOfIterations; counter++) {
             Optional<Server> server = servers.stream()
@@ -46,16 +52,6 @@ public class Simulator {
                     .findAny();
             for (Table table : tables) {
                 switch (table.getStatus()) {
-                    case AVAILABLE:
-                        if (server.isPresent()) {
-                            server.get().leadToTable(table);
-                        }
-                        break;
-                    case FINISHED:
-                        if (server.isPresent()) {
-                            server.get().closeOutTable(table);
-                        }
-                        break;
                     case NEEDS_BUSSING:
                         if (assistant.isPresent()) {
                             assistant.get().busTable(table);
