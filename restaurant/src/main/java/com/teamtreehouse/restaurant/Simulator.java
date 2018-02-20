@@ -24,6 +24,7 @@ public class Simulator {
         );
         Dashboard dashboard = new Dashboard();
         tables.forEach(dashboard::addTable);
+        tables.forEach(table -> table.addObserver(dashboard));
 
         Server alice = new Server("Alice");
         Server bob = new Server("Bob");
@@ -43,11 +44,6 @@ public class Simulator {
             Optional<Assistant> assistant = assistants.stream()
                     .filter(Assistant::isAvailable)
                     .findAny();
-            if (server.isPresent()) {
-                server.get().refreshDashboard(dashboard);
-            } else if (assistant.isPresent()) {
-                assistant.get().refreshDashboard(dashboard);
-            }
             for (Table table : tables) {
                 switch (table.getStatus()) {
                     case AVAILABLE:
