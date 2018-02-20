@@ -37,10 +37,15 @@ public class Simulator {
 
         tables.forEach(table -> table.addObserver(dashboard));
         table1.addObserver(alice);
+        table2.addObserver(charlie);
         table2.addObserver(alice);
+        table2.addObserver(charlie);
         table3.addObserver(alice);
+        table2.addObserver(charlie);
         table4.addObserver(bob);
+        table2.addObserver(darla);
         table5.addObserver(bob);
+        table2.addObserver(darla);
 
         int numberOfIterations = 30;
         for (int counter = 0; counter < numberOfIterations; counter++) {
@@ -51,13 +56,7 @@ public class Simulator {
                     .filter(Assistant::isAvailable)
                     .findAny();
             for (Table table : tables) {
-                switch (table.getStatus()) {
-                    case NEEDS_BUSSING:
-                        if (assistant.isPresent()) {
-                            assistant.get().busTable(table);
-                        }
-                        break;
-                }
+
             }
             passTime(1);
         }
