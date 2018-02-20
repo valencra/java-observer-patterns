@@ -5,6 +5,7 @@ import com.teamtreehouse.restaurant.staff.Server;
 import com.teamtreehouse.restaurant.tables.Status;
 import com.teamtreehouse.restaurant.tables.Table;
 import com.teamtreehouse.restaurant.tools.Dashboard;
+import com.teamtreehouse.restaurant.tools.Pager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +48,8 @@ public class Simulator {
         table2.addObserver(darla);
         table5.addObserver(bob);
         table2.addObserver(darla);
+
+        tables.forEach(table -> new Pager(table));
 
         tables.forEach(table -> table.setStatus(Status.AVAILABLE));
         passTime(30);
