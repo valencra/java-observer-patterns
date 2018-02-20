@@ -2,6 +2,7 @@ package com.teamtreehouse.restaurant;
 
 import com.teamtreehouse.restaurant.staff.Assistant;
 import com.teamtreehouse.restaurant.staff.Server;
+import com.teamtreehouse.restaurant.tables.Status;
 import com.teamtreehouse.restaurant.tables.Table;
 import com.teamtreehouse.restaurant.tools.Dashboard;
 
@@ -47,7 +48,10 @@ public class Simulator {
         table5.addObserver(bob);
         table2.addObserver(darla);
 
+        tables.forEach(table -> table.setStatus(Status.AVAILABLE));
+        passTime(30);
         System.out.println("Closing up shop");
+        tables.forEach(table -> table.deleteObservers());
         servers.forEach(Server::clockOut);
         assistants.forEach(Assistant::clockOut);
         dashboard.shutdown();
